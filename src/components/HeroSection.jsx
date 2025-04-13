@@ -29,10 +29,11 @@ const HeroSection = () => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://i.pinimg.com/736x/48/43/85/484385d042f7b6c6b6b0fa3694840d48.jpg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "600px",
+        minHeight: "400px",  // Default minimum height
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        padding: { xs: '16px', sm: '24px', md: '32px', lg: '40px' },  // Responsive padding based on the screen size
       }}
     >
       <Container>
@@ -46,7 +47,7 @@ const HeroSection = () => {
             gutterBottom
             sx={{
               fontWeight: 700,
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem", lg: "3rem" }, // Responsive font size
               lineHeight: 1.2,
               mb: 2,
             }}
@@ -66,13 +67,14 @@ const HeroSection = () => {
               maxWidth: "600px",
               mb: 4,
               color: "text.secondary",
+              fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem" }, // Responsive body text size
             }}
           >
             If you experience a breakdown or accident, we are here for you. Our reliable towing services are available 24/7 
             to provide immediate assistance when you need it most.
           </Typography>
-          <Box display="flex" gap={2} flexWrap="wrap">
-            <Button variant="contained" color="primary" size="large" sx={{ px: 4, py: 1.5 }} onClick={handleOpenAppointment}>
+          <Box display="flex" flexDirection={{ xs: 'column', sm: 'row' }} gap={2} flexWrap="wrap">
+            <Button variant="contained" color="primary" size="large" sx={{ width: { xs: '100%', sm: 'auto' }, px: 3, py: 1.5 }} onClick={handleOpenAppointment}>
               MAKE APPOINTMENT
             </Button>
             <Button
@@ -81,7 +83,8 @@ const HeroSection = () => {
               size="large"
               endIcon={<ArrowForwardIcon />}
               sx={{
-                px: 4,
+                width: { xs: '100%', sm: 'auto' },
+                px: 3,
                 py: 1.5,
                 "&:hover": {
                   backgroundColor: "transparent",
@@ -96,13 +99,14 @@ const HeroSection = () => {
       </Container>
       <Box sx={{ backgroundColor: "background.paper", py: 0 }}>
         <Container>
-          <Grid container>
+          <Grid container spacing={2}>
             <Grid item xs={12} md={4}>
               <Box
                 className="feature-box"
                 sx={{
                   backgroundColor: "background.paper",
                   borderRight: { md: "1px solid rgba(255,255,255,0.1)" },
+                  padding: { xs: '10px', sm: '15px', md: '20px' },
                 }}
               >
                 <Typography variant="h6" gutterBottom>
@@ -122,6 +126,7 @@ const HeroSection = () => {
                   "& .MuiTypography-root": {
                     color: "black",
                   },
+                  padding: { xs: '10px', sm: '15px', md: '20px' },
                 }}
               >
                 <Typography variant="h6" gutterBottom>
@@ -136,6 +141,7 @@ const HeroSection = () => {
                 sx={{
                   backgroundColor: "background.paper",
                   borderLeft: { md: "1px solid rgba(255,255,255,0.1)" },
+                  padding: { xs: '10px', sm: '15px', md: '20px' },
                 }}
               >
                 <Typography variant="h6" gutterBottom>
@@ -160,7 +166,7 @@ const HeroSection = () => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: 400,
+          width: { xs: '90%', sm: '400px' },
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 4,
@@ -174,8 +180,8 @@ const HeroSection = () => {
           <TextField label="Service" select fullWidth SelectProps={{ native: true }} sx={{ mb: 2 }}>
             <option value="detailing">Detailing</option>
             <option value="repair">Repair</option>
-            <option value="diagnosis">Diagnosis</option> {/* Added Diagnosis option */}
-            <option value="inspection">Inspection</option> {/* Added Inspection option */}
+            <option value="diagnosis">Diagnosis</option>
+            <option value="inspection">Inspection</option>
           </TextField>
           <TextField label="Time" select fullWidth SelectProps={{ native: true }} sx={{ mb: 2 }}>
             <option value="">Select Time</option>
@@ -198,7 +204,7 @@ const HeroSection = () => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: 500,
+          width: { xs: '90%', sm: '500px' },
           bgcolor: 'background.paper',
           boxShadow: 24,
           p: 4,
@@ -218,8 +224,8 @@ const HeroSection = () => {
             <li><Typography variant="body2">Engine Bay Cleaning</Typography></li>
             <li><Typography variant="body2">Scratch Removal</Typography></li>
             <li><Typography variant="body2">Minor Collision Repairs</Typography></li>
-            <li><Typography variant="body2">Diagnosis</Typography></li> {/* Added Diagnosis to services list */}
-            <li><Typography variant="body2">Inspection</Typography></li> {/* Added Inspection to services list */}
+            <li><Typography variant="body2">Diagnosis</Typography></li>
+            <li><Typography variant="body2">Inspection</Typography></li>
           </ul>
           <Button variant="contained" color="primary" onClick={handleCloseReadMore}>
             Close
@@ -227,7 +233,7 @@ const HeroSection = () => {
         </Box>
       </Modal>
     </Box>
-  )
-}
+  );
+};
 
 export default HeroSection;

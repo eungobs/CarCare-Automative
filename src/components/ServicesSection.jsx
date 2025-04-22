@@ -57,7 +57,7 @@ const ServiceCard = ({ service, onReadMore }) => {
           sx={{
             width: "100%",
             height: "100%",
-            objectFit: "fill", 
+            objectFit: "cover", // Maintain aspect ratio
           }}
         />
         <Box className="service-icon">{icon}</Box>
@@ -93,7 +93,6 @@ const ServiceCard = ({ service, onReadMore }) => {
 const ServiceDetailModal = ({ open, service, handleClose }) => {
   if (!service) return null
 
-  // Extended descriptions for each service
   const extendedDescriptions = {
     "Exterior Detailing": (
       <>
@@ -101,46 +100,13 @@ const ServiceDetailModal = ({ open, service, handleClose }) => {
           Our exterior detailing service is a comprehensive cleaning and restoration process that enhances your
           vehicle's appearance and protects its paint and exterior components.
         </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
-        </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Hand Wash & Dry:</strong> We use pH-balanced soaps and premium microfiber towels to safely remove
-              dirt and contaminants without scratching.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Clay Bar Treatment:</strong> This process removes embedded contaminants that washing alone can't
-              remove, leaving your paint smooth as glass.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Paint Polishing:</strong> We carefully polish the paint to remove minor scratches, swirl marks,
-              and oxidation, restoring your vehicle's shine.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Wax/Sealant Application:</strong> A protective layer is applied to shield your paint from UV rays,
-              environmental contaminants, and water spots.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Trim & Tire Dressing:</strong> All exterior plastic, rubber, and vinyl surfaces are cleaned and
-              protected with specialized dressings.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Glass Cleaning:</strong> All exterior glass surfaces are thoroughly cleaned for optimal visibility
-              and a streak-free finish.
-            </Typography>
-          </li>
+          <li>Hand Wash & Dry</li>
+          <li>Clay Bar Treatment</li>
+          <li>Paint Polishing</li>
+          <li>Wax/Sealant Application</li>
+          <li>Trim & Tire Dressing</li>
+          <li>Glass Cleaning</li>
         </ul>
       </>
     ),
@@ -150,83 +116,27 @@ const ServiceDetailModal = ({ open, service, handleClose }) => {
           Our interior detailing service is a meticulous cleaning process that restores your vehicle's interior to
           like-new condition, creating a clean, fresh, and comfortable cabin environment.
         </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
-        </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Thorough Vacuuming:</strong> We remove all dust, dirt, and debris from carpets, seats, and
-              hard-to-reach areas.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Steam Cleaning:</strong> High-temperature steam is used to sanitize surfaces and remove stubborn
-              stains.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Leather/Upholstery Treatment:</strong> Seats and surfaces are cleaned with appropriate products
-              and conditioned to prevent cracking and fading.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Dashboard & Console Detailing:</strong> All interior panels, vents, buttons, and screens are
-              carefully cleaned and protected.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Interior Glass Treatment:</strong> All windows and mirrors are cleaned for perfect clarity and a
-              streak-free finish.
-            </Typography>
-          </li>
+          <li>Thorough Vacuuming</li>
+          <li>Steam Cleaning</li>
+          <li>Leather/Upholstery Treatment</li>
+          <li>Dashboard & Console Detailing</li>
+          <li>Interior Glass Treatment</li>
         </ul>
       </>
     ),
     "Paint Correction": (
       <>
         <Typography variant="body1" paragraph>
-          Paint correction is a specialized process that removes imperfections from your vehicle's clear coat and paint,
-          restoring its original luster and creating a flawless finish.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
+          Paint correction is a specialized process that removes imperfections from your vehicle's paint, restoring its
+          original luster and creating a flawless finish.
         </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Surface Preparation:</strong> The vehicle is thoroughly washed, decontaminated, and clay barred to
-              create a clean surface for correction.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Paint Inspection:</strong> We use specialized lighting to identify swirls, scratches, oxidation,
-              and other imperfections.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Multi-Stage Polishing:</strong> Using professional-grade compounds and polishes, we carefully
-              remove defects while preserving the clear coat.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Finishing Polish:</strong> A final polishing step maximizes gloss and clarity for a mirror-like
-              finish.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Paint Protection:</strong> After correction, we apply a premium sealant or ceramic coating to
-              protect the restored finish.
-            </Typography>
-          </li>
+          <li>Surface Preparation</li>
+          <li>Paint Inspection</li>
+          <li>Multi-Stage Polishing</li>
+          <li>Finishing Polish</li>
+          <li>Paint Protection</li>
         </ul>
       </>
     ),
@@ -234,42 +144,14 @@ const ServiceDetailModal = ({ open, service, handleClose }) => {
       <>
         <Typography variant="body1" paragraph>
           Our engine diagnostics and repair service uses advanced technology to identify and resolve issues affecting
-          your vehicle's performance, ensuring reliable operation and preventing costly breakdowns.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
+          your vehicle's performance, ensuring reliable operation.
         </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Comprehensive Diagnostics:</strong> We use state-of-the-art diagnostic equipment to read error
-              codes and identify issues.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Performance Testing:</strong> We evaluate engine performance metrics to identify problems that may
-              not trigger warning lights.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Expert Repairs:</strong> Our certified technicians perform necessary repairs using quality OEM or
-              approved aftermarket parts.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Preventative Maintenance:</strong> We identify and address potential issues before they cause
-              breakdowns.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Post-Repair Testing:</strong> After repairs, we thoroughly test the vehicle to ensure all issues
-              have been resolved.
-            </Typography>
-          </li>
+          <li>Comprehensive Diagnostics</li>
+          <li>Performance Testing</li>
+          <li>Expert Repairs</li>
+          <li>Preventative Maintenance</li>
+          <li>Post-Repair Testing</li>
         </ul>
       </>
     ),
@@ -277,88 +159,28 @@ const ServiceDetailModal = ({ open, service, handleClose }) => {
       <>
         <Typography variant="body1" paragraph>
           Our 24/7 towing service provides reliable assistance when you need it most, whether you're stranded due to a
-          breakdown, accident, or other emergency situation.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
+          breakdown or other emergency situation.
         </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Emergency Towing:</strong> Fast response times to get you and your vehicle to safety.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Flatbed Towing:</strong> Secure transportation that prevents additional damage to your vehicle.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Accident Recovery:</strong> Specialized equipment and techniques for recovering vehicles from
-              difficult situations.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Roadside Assistance:</strong> Jump starts, tire changes, fuel delivery, and lockout services.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Long-Distance Towing:</strong> Safe transportation for vehicles that need to be moved across town
-              or to another city.
-            </Typography>
-          </li>
+          <li>Emergency Towing</li>
+          <li>Flatbed Towing</li>
+          <li>Accident Recovery</li>
+          <li>Roadside Assistance</li>
+          <li>Long-Distance Towing</li>
         </ul>
       </>
     ),
     "Suspension & Brake Services": (
       <>
         <Typography variant="body1" paragraph>
-          Our suspension and brake services ensure your vehicle handles properly and stops safely, providing peace of
-          mind and optimal performance in all driving conditions.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          <strong>What's included:</strong>
+          Our suspension and brake services ensure your vehicle handles properly and stops safely.
         </Typography>
         <ul>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Brake Inspection:</strong> Thorough evaluation of brake pads, rotors, calipers, and fluid to
-              identify wear and potential issues.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Brake Pad Replacement:</strong> Installation of high-quality brake pads designed for your specific
-              vehicle and driving needs.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Rotor Resurfacing/Replacement:</strong> Machining or replacing worn rotors to ensure smooth,
-              effective braking.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Suspension Diagnosis:</strong> Identifying worn shocks, struts, bushings, and other components
-              that affect ride quality.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1" paragraph>
-              <strong>Suspension Repair:</strong> Replacement of worn components to restore handling, stability, and
-              comfort.
-            </Typography>
-          </li>
-          <li>
-            <Typography variant="body1">
-              <strong>Wheel Alignment:</strong> Precise adjustment of wheel angles to ensure even tire wear and proper
-              handling.
-            </Typography>
-          </li>
+          <li>Brake Inspection</li>
+          <li>Brake Pad Replacement</li>
+          <li>Rotor Resurfacing/Replacement</li>
+          <li>Suspension Diagnosis</li>
+          <li>Wheel Alignment</li>
         </ul>
       </>
     ),
@@ -391,16 +213,16 @@ const ServiceDetailModal = ({ open, service, handleClose }) => {
             sx={{
               width: "100%",
               height: "100%",
-              objectFit: "fill",
+              objectFit: "cover", // Maintain aspect ratio
             }}
           />
         </Box>
 
-        {extendedDescriptions[service.title] || <Typography variant="body1">{service.description}</Typography>}
+        {extendedDescriptions[service.title] || (
+          <Typography variant="body1">{service.description}</Typography>
+        )}
 
-        <Button variant="contained" color="primary" sx={{ mt: 4, color: "black" }} onClick={handleClose}>
-          Book This Service
-        </Button>
+        {/* Removed Book This Service Button */}
       </Box>
     </Modal>
   )
@@ -422,7 +244,7 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Exterior Detailing",
-      description: "In car exterior detailing, we meticulously wash the vehicle.",
+      description: "We meticulously wash, restore, and protect your vehicle's exterior.",
       icon: <BrushIcon />,
       image: "https://i.pinimg.com/736x/4b/bd/78/4bbd784facbd06244fd117767c3fbbe2.jpg",
     },
@@ -440,7 +262,7 @@ const ServicesSection = () => {
     },
     {
       title: "Engine Diagnostics & Repair",
-      description: "Repair service and resolving issues within a vehicle's engine system.",
+      description: "Identifying and resolving engine issues for optimal performance.",
       icon: <BuildIcon />,
       image: "https://i.pinimg.com/736x/fd/a0/f1/fda0f12cfed52d323f45574cd50b5acd.jpg",
     },
@@ -452,7 +274,7 @@ const ServicesSection = () => {
     },
     {
       title: "Suspension & Brake Services",
-      description: "Focuses on the brake pads, rotors, calipers, and brake fluid.",
+      description: "Focuses on brake components and ensuring safety.",
       icon: <EngineeringIcon />,
       image: "https://i.pinimg.com/736x/9b/7e/90/9b7e90613dcf97fee7cf9a4d22401f7a.jpg",
     },
@@ -494,10 +316,9 @@ const ServicesSection = () => {
               color: "text.secondary",
             }}
           >
-            we pride ourselves on providing exceptional car detailing 
-            and repair services tailored to meet your needs.
-            Our team of skilled professionals is committed to restoring
-            your vehicle to its optimal condition, both inside and out. 
+            We pride ourselves on providing exceptional car detailing and repair services tailored to meet your needs.
+            Our team of skilled professionals is committed to restoring your vehicle to its optimal condition, both
+            inside and out.
           </Typography>
         </Box>
 
@@ -516,8 +337,3 @@ const ServicesSection = () => {
 }
 
 export default ServicesSection
-
-
-
-
-
